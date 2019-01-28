@@ -21,6 +21,7 @@ namespace LabHighCpuCoreSite
             WebHost.CreateDefaultBuilder(args)
                 .ConfigureLogging((hostingContext, logging) =>
                 {
+                    logging.AddConfiguration(hostingContext.Configuration.GetSection("Logging"));
                     logging.AddEventSourceLogger();
                 })
                 .UseStartup<Startup>();
